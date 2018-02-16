@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+#include <iomanip>  //  libreria de manipulacion de decimales
 
-using namespace std;
+using namespace std;    //  por defecto
 
 
-double pi(int n) {
+double pi(int n) {                      //  Variable tipo double que recibe a n
     double sum = 0.0;
     int sign = 1;
-    for (int i = 0; i < n; ++i) {           
+    for (int i = 0; i < n; ++i) {       //  ciclo for       
         sum += sign/(2.0*i+1.0);
         sign *= -1;
     }
@@ -19,31 +19,30 @@ double pi(int n) {
 }
 
 
-void *worker_thread(void *arg){
+void *worker_thread(void *arg){                         //  funcion de los hilos
     printf("This is thread will calculate pi\n");
-    double result = pi((long)arg);
-    cout << setprecision(10) << result << endl;
-    pthread_exit(NULL);
+    double result = pi((long)arg);                      //  toma el valor que tiene la funcion pi
+    cout << setprecision(10) << result << endl;         //  trunca el valor a 10 digitos
+    pthread_exit(NULL);                                 //  termina la llamada del hilo
 }
 
 
-int main(){
+int main(){                                             //  programa principal
     int N;
     cout << "How many units do you want to use?\n";
-    cin >> N;
-    pthread_t my_thread[50*N];
+    cin >> N;                                           //  entrada del teclado
+    pthread_t my_thread[50*N];                          //  tipo de tratado de hilo
     double *pies [50*N];
 
     printf("In main: creating threads\n");   
 
     long id;
     for (id = 1; id <= 50*N; id++){
-        int ret = pthread_create(&my_thread[id], NULL, &worker_thread, (void*)pies[id]);
+        int ret = pthread_create(&my_thread[id], NULL, &worker_thread, (void*)pies[id]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
         if (ret != 0){
             printf("Error: pthread_create() failed\n");
-            exit(EXIT_FAILURE);
+            exit(EXIT_FAILURE);                         //  se sale del for
         }
     }
-    pthread_exit(NULL);
+    pthread_exit(NULL);     //  termina la llamada del hilo
 }
-
