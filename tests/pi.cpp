@@ -21,14 +21,13 @@ void ClearScreen()
   putp( tigetstr( "clear" ) );
   }
 
-double pi(int n) {                      //  Variable tipo double que recibe a n
-    double sum = 0.0;
+void pi(int n, double suma) {                      //  Variable tipo double que recibe a n
+    suma = 0.0;
     int sign = 1;
     for (int i = 0; i < n; ++i) {       //  ciclo for       
-        sum += sign/(2.0*i+1.0);
+        suma += 4*sign/(2.0*i+1.0);
         sign *= -1;
     }
-    return 4.0*sum;
 }
 
 struct threadArgs {
@@ -38,9 +37,17 @@ struct threadArgs {
 
 void *worker_thread(void *arg){                         //  funcion de los hilos
     struct threadArgs *data = (struct threadArgs *) arg;
-    printf("This is thread will calculate pi with %i iterations\n", data->iteraciones);
-    double result = pi(data->iteraciones);              //  toma el valor que tiene la funcion pi
-    data->results = result;
+    double suma = 0.0;
+    int n = data->iteraciones;
+    printf("This is thread will calculate pi with %i iterations\n", n);
+    int sign = 1;
+    for (int i = 0; i < n; ++i) {       //  ciclo for       
+        suma += 4*sign/(2.0*i+1.0);
+        sign *= -1;
+        data->results = suma;
+        usleep(100);
+    }
+    //cout << setprecision(50) << result << endl;         //  trunca el valor a 10 digitos
     pthread_exit(NULL);                                 //  termina la llamada del hilo
 }
 
@@ -49,8 +56,9 @@ void *printArray(void* array){
     while (true){
         int i;
         for(i=1; i<=20; i++){
-            cout << setprecision(50) << data[i].results << endl;         //  trunca el valor a 10 digitos
+            cout << setprecision(80) << data[i].results << endl;         //  trunca el valor a 10 digitos
         }
+        sleep(1);
         ClearScreen();
     }
 }
@@ -66,7 +74,7 @@ int main(){                                             //  programa principal
 
     int i;
     for (i = 1; i <= N; i++){
-        argArray[i].iteraciones = i*50;
+        argArray[i].iteraciones = i*5000;
         int ret = pthread_create(&my_thread[i], NULL, &worker_thread, (void*) &argArray[i]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
         if (ret != 0){
             printf("Error: pthread_create() failed\n");
