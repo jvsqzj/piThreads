@@ -18,6 +18,10 @@ double pi(int n) {                      //  Variable tipo double que recibe a n
     return 4.0*sum;
 }
 
+struct threadArgs {
+    int iteraciones;
+    double *results;
+};
 
 void *worker_thread(void *arg){                         //  funcion de los hilos
     printf("This is thread will calculate pi\n");
@@ -31,14 +35,17 @@ int main(){                                             //  programa principal
     int N;
     cout << "How many units do you want to use?\n";
     cin >> N;                                           //  entrada del teclado
-    pthread_t my_thread[50*N];                          //  tipo de tratado de hilo
-    double *pies [50*N];
+    pthread_t my_thread[N];                          //  tipo de tratado de hilo
+    double *pies [N];
+    struct threadArgs argArray[N];
 
     printf("In main: creating threads\n");   
 
-    long id;
-    for (id = 1; id <= 50*N; id++){
-        int ret = pthread_create(&my_thread[id], NULL, &worker_thread, (void*)pies[id]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
+    int id;
+    for (id = 1; id <= N; id++){
+        argArray[N].id = id*50;
+        argArray[N].results = pies[N]
+        int ret = pthread_create(&my_thread[id], NULL, &worker_thread, (void*) &argArray[id]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
         if (ret != 0){
             printf("Error: pthread_create() failed\n");
             exit(EXIT_FAILURE);                         //  se sale del for
