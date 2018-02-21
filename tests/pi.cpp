@@ -24,9 +24,10 @@ struct threadArgs {
 };
 
 void *worker_thread(void *arg){                         //  funcion de los hilos
-    printf("This is thread will calculate pi\n");
-    double result = pi((long)arg);                      //  toma el valor que tiene la funcion pi
-    cout << setprecision(10) << result << endl;         //  trunca el valor a 10 digitos
+    struct threadArgs *data = (struct threadArgs *) arg;
+    printf("This is thread will calculate pi with %i iterations\n", data->iteraciones);
+    double result = pi(data->iteraciones);              //  toma el valor que tiene la funcion pi
+    data->results = &result;
     pthread_exit(NULL);                                 //  termina la llamada del hilo
 }
 
@@ -35,7 +36,7 @@ int main(){                                             //  programa principal
     int N;
     cout << "How many units do you want to use?\n";
     cin >> N;                                           //  entrada del teclado
-    pthread_t my_thread[N];                          //  tipo de tratado de hilo
+    pthread_t my_thread[N];                             //  tipo de tratado de hilo
     double *pies [N];
     struct threadArgs argArray[N];
 
@@ -52,4 +53,8 @@ int main(){                                             //  programa principal
         }
     }
     pthread_exit(NULL);     //  termina la llamada del hilo
+    int i;
+    for (i = 0; i <= N; id++){
+        cout << setprecision(10) << pies[i] << endl;         //  trunca el valor a 10 digitos
+    }
 }
