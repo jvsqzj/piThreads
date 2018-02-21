@@ -43,8 +43,8 @@ int main(){                                             //  programa principal
 
     int id;
     for (id = 1; id <= N; id++){
-        argArray[N].id = id*50;
-        argArray[N].results = pies[N]
+        argArray[N].iteraciones = id*50;
+        argArray[N].results = pies[N];
         int ret = pthread_create(&my_thread[id], NULL, &worker_thread, (void*) &argArray[id]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
         if (ret != 0){
             printf("Error: pthread_create() failed\n");
