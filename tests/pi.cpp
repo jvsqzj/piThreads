@@ -45,7 +45,7 @@ void *worker_thread(void *arg){                         //  funcion de los hilos
         suma += 4*sign/(2.0*i+1.0);
         sign *= -1;
         data->results = suma;
-        usleep(100);
+        usleep(1000);
     }
     //cout << setprecision(50) << result << endl;         //  trunca el valor a 10 digitos
     pthread_exit(NULL);                                 //  termina la llamada del hilo
@@ -58,7 +58,7 @@ void *printArray(void* array){
         for(i=1; i<=20; i++){
             cout << setprecision(80) << data[i].results << endl;         //  trunca el valor a 10 digitos
         }
-        sleep(1);
+        usleep(500);
         ClearScreen();
     }
 }
@@ -74,7 +74,7 @@ int main(){                                             //  programa principal
 
     int i;
     for (i = 1; i <= N; i++){
-        argArray[i].iteraciones = i*5000;
+        argArray[i].iteraciones = i*50;
         int ret = pthread_create(&my_thread[i], NULL, &worker_thread, (void*) &argArray[i]);    //  Crea un hilo y pasa por parametro el valor de la variable "pies"
         if (ret != 0){
             printf("Error: pthread_create() failed\n");
