@@ -45,7 +45,7 @@ void *worker_thread(void *arg){                         //  funcion de los hilos
         suma += 4*sign/(2.0*i+1.0);
         sign *= -1;
         data->results = suma;
-        usleep(1000);
+        usleep(3000);
     }
     //cout << setprecision(50) << result << endl;         //  trunca el valor a 10 digitos
     pthread_exit(NULL);                                 //  termina la llamada del hilo
@@ -58,7 +58,7 @@ void *printArray(void* array){
         for(i=1; i<=20; i++){
             cout << setprecision(80) << data[i].results << endl;         //  trunca el valor a 10 digitos
         }
-        usleep(500);
+        usleep(1000);
         ClearScreen();
     }
 }
