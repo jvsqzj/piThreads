@@ -38,27 +38,6 @@ struct piArguments {
 };
 
 /*-----------------------------------------------------------------------------
-                    showArguments es una estructura para                           
-                    los argumentos de un thread dedicado
-                    a la impresion de datos en la pantalla                                                 
--------------------------------------------------------------------------------
-
-        Contiene los atributos:
-
-        double progreso es un arreglo que contiene el porcentaje
-        de progreso de cada uno de los threads ejecutados
-
-        double resultado es un arreglo que contiene el valor de pi
-        calculado por cada thread ejecutado
-        
------------------------------------------------------------------------------*/
-
-struct showArguments{
-    double* progreso;
-    double* resultado;
-}; 
-
-/*-----------------------------------------------------------------------------
                     piThread es una funcion que ejecuta
                     el algoritmo de taylor que calcula pi                                                
 -------------------------------------------------------------------------------
@@ -96,10 +75,9 @@ void *piThread(void* arg){
                     de mostrar los datos calculados por los 
                     threads y el progreso de cada thread                                               
 -------------------------------------------------------------------------------
-
         Se debe llamar con un argumento de entrada tipo
-        struct showArguments, ingresado por referencia
-        
+        struct piArguments , ingresado por referencia,
+        y hace uso de los atributos resultado y progeso
 -----------------------------------------------------------------------------*/
 
 void *showThread(void* arg){
