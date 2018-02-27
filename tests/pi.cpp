@@ -64,6 +64,9 @@ void *printArray(void* array){
 }
 
 
+bool pausa;
+
+
 int main(){                                             //  programa principal
     int N;
     cout << "How many units do you want to use?\n";
