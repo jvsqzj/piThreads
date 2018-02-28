@@ -2,6 +2,15 @@
 
 //using namespace std;
 
+void dibuja_barra(int pos_y) 
+  {
+    int a;
+    for (a=0; a<10; a++)
+      {
+        move (pos_y,a); printw(" ");
+      }
+  }
+
 int main()
 {
   WINDOW *w;  //  ventana es un puntero llamado w
@@ -31,6 +40,11 @@ int main()
 
   pos_x = max_x / 2;  //  Tanto 'x' como 'y' son la mitad del
   pos_y = max_y / 2;  //  valor maximo
+
+  bkgd(COLOR_PAIR(1)); 
+  attron(COLOR_PAIR(2)); 
+
+  dibuja_barra(max_y);
   
   do  //  haga
   {
@@ -56,3 +70,4 @@ int main()
             //  de curses
   return 0;
 }
+

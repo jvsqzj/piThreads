@@ -33,7 +33,7 @@ using namespace std;
 struct piArguments {                            
     int iteraciones;
     bool* pausa;
-    double progreso;
+    double progreso;    //  progreso para la barra. Convertirlo a entero por si acaso.
     double resultado;
 };
 
