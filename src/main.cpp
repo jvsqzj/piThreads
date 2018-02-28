@@ -1,6 +1,7 @@
 
 #include "definiciones.cpp"
 #include <pthread.h>
+#include <ncurses.h>
 
 int main(){
     int N;
@@ -8,7 +9,7 @@ int main(){
     cin >> N;                                           //  entrada del teclado en version de prueba
     pthread_t my_thread[N+1];                           
     struct piArguments argArray[N];
-    char* tecla;
+    
     bool pausa;
     pausa = true;
     
@@ -24,11 +25,44 @@ int main(){
         }
     }
 
+    char captura;
+    bool ciclo=true;
+    char *tecla;
+
+
     int print = pthread_create(&my_thread[N+1], NULL, &printArray, (void*) &argArray);
     if (print != 0){
         printf("Error: pthread_create() failed\n");
         exit(EXIT_FAILURE);                         
     }
+
+
+    initscr ();
+    while(ciclo==true){
+       captura=getch();
+       cbreak();
+
+       if(captura==80 || captura==112){
+          //printw ("Sistema pausado\n");
+          pausa=true;
+          tecla = &captura;
+       }
+
+       else if(captura==82 || captura==114){
+          //printw ("Sistema Reiniciado\n");
+          pausa=false;
+          tecla = &captura;
+       }
+       else if(captura==83 || captura==115){
+         ciclo=false;
+         tecla=&captura;
+       }
+    }
+
+    /* Finalizar ncurses. Esto es necesario para volver al modo estandar de
+     * la terminal */
+    endwin ();
+
 
     pthread_exit(NULL);
     
