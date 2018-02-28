@@ -32,7 +32,7 @@ using namespace std;
 
 struct piArguments {                            
     int iteraciones;
-    bool pausa;
+    bool* pausa;
     double progreso;
     double resultado;
 };
@@ -57,7 +57,7 @@ void *piThread(void* arg){
     int i = 0;
     while (i < n){
         usleep(5000);
-        if (true){
+        if (!*data->pausa){
             suma += 4*sign/(2.0*i+1.0);
             sign *= -1;
             data->resultado = suma;
