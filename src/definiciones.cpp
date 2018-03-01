@@ -49,7 +49,7 @@ struct piArguments {
 
 void *piThread(void* arg){
     struct piArguments *data = (struct piArguments *) arg;
-    printf("Thread #%i \n", data->iteraciones/50);
+    //printf("Thread #%i \n", data->iteraciones/50);
     double suma = 0.0;
     double completado;
     int sign = 1;

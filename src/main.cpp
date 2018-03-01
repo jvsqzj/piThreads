@@ -11,7 +11,7 @@ int main(){
     struct piArguments argArray[N];     //  Aqui estan los valores que se deben imprimir y el progreso tambien
     
     bool pausa;
-    pausa = true;
+    pausa = false;
     
 
     int i;
@@ -39,9 +39,10 @@ int main(){
     //  Aqui va lo grafico
     WINDOW *w;
     initscr ();
-    int max_x, max_y;
+    noecho();
+    //int max_x, max_y;
 
-    getmaxyx(w, max_y, max_x);
+    //getmaxyx(w, max_y, max_x);
     move(1, 0);
     printw("Hilo");
     move(1, 20);
@@ -56,77 +57,98 @@ int main(){
         printw("%i", i);
     }
 
-        for (my_thread[i] = 1; i <= N; i++)
-        {
-            while (argArray[i].progreso < 20 && argArray[i].progreso > 10)
+
+    while(ciclo==true){
+        captura=getch();
+        cbreak();
+
+        if(captura==80 || captura==112){
+            //printw ("Sistema pausado\n");
+            pausa=true;
+            tecla = &captura;
+        }
+
+        else if(captura==82 || captura==114){
+            //printw ("Sistema Reiniciado\n");
+            pausa=false;
+            tecla = &captura;
+        }
+        else if(captura==83 || captura==115){
+            ciclo=false;
+            tecla=&captura;
+        }
+    
+
+        for (i = 1; i <= N; i++){
+            if (argArray[i].progreso < 20 && argArray[i].progreso > 10)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 30 && argArray[i].progreso > 20)
+            else if (argArray[i].progreso < 30 && argArray[i].progreso > 20)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 40 && argArray[i].progreso > 30)
+            else if (argArray[i].progreso < 40 && argArray[i].progreso > 30)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 50 && argArray[i].progreso > 40)
+            else if (argArray[i].progreso < 50 && argArray[i].progreso > 40)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 60 && argArray[i].progreso > 50)
+            else if (argArray[i].progreso < 60 && argArray[i].progreso > 50)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); 
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 70 && argArray[i].progreso > 60)
+            else if (argArray[i].progreso < 70 && argArray[i].progreso > 60)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 80 && argArray[i].progreso > 70)
+            else if (argArray[i].progreso < 80 && argArray[i].progreso > 70)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 90 && argArray[i].progreso > 80)
+            else if (argArray[i].progreso < 90 && argArray[i].progreso > 80)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso < 100 && argArray[i].progreso > 90)
+            else if (argArray[i].progreso < 100 && argArray[i].progreso > 90)
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -134,10 +156,10 @@ int main(){
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND);
-                break;
+                    
             }
 
-            while (argArray[i].progreso == 100)
+            else
             {
                 move(2*i, 20);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -145,32 +167,14 @@ int main(){
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                break;
+                    
             }
+        refresh();
         }
-    //}
-
-    while(ciclo==true){
-       captura=getch();
-       cbreak();
-
-       if(captura==80 || captura==112){
-          //printw ("Sistema pausado\n");
-          pausa=true;
-          tecla = &captura;
-       }
-
-       else if(captura==82 || captura==114){
-          //printw ("Sistema Reiniciado\n");
-          pausa=false;
-          tecla = &captura;
-       }
-       else if(captura==83 || captura==115){
-         ciclo=false;
-         tecla=&captura;
-       }
     }
+    
 
+    
     /* Finalizar ncurses. Esto es necesario para volver al modo estandar de
      * la terminal */
     endwin ();
