@@ -54,6 +54,91 @@ int main(){
     for (i = 1; i <= N; i++){
         move(2*i, 1);
         printw("%i", i);
+
+        while (progreso < 10 && progreso > 0)
+        {
+            move(2*i, 20);
+        }
+
+        while (progreso < 20 && progreso > 10)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 30 && progreso > 20)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 40 && progreso > 30)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); 
+        }
+
+        while (progreso < 50 && progreso > 40)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 60 && progreso > 50)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); 
+        }
+
+        while (progreso < 70 && progreso > 60)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 80 && progreso > 70)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 90 && progreso > 80)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+        }
+
+        while (progreso < 100 && progreso > 90)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND);
+        }
+
+        while (progreso == 100)
+        {
+            move(2*i, 20);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+            addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+        }
     }
 
 
