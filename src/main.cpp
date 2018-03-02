@@ -97,9 +97,17 @@ int main(){
             printw("%.2f",argArray[i].progreso);
             move(2*i,20);
 
+            if (argArray[i].progreso < 10)
+            {
+            
 
+                printw("..........");
+                //(ACS_DIAMOND);
+                
+                    
+            }
 
-            if (argArray[i].progreso < 20 && argArray[i].progreso > 10)
+            else if (argArray[i].progreso < 20 && argArray[i].progreso > 10)
             {
             
 
@@ -149,7 +157,7 @@ int main(){
             else if (argArray[i].progreso < 70 && argArray[i].progreso > 60)
             {
             
-                printw("******....");
+                printw("*******...");
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
@@ -159,7 +167,7 @@ int main(){
             else if (argArray[i].progreso < 80 && argArray[i].progreso > 70)
             {
             
-                printw("*******...");
+                printw("********..");
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
@@ -170,27 +178,16 @@ int main(){
             else if (argArray[i].progreso < 90 && argArray[i].progreso > 80)
             {
             
-                printw("********..");
-                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
-                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
-                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
-                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
-
-
-                    
-            }
-
-            else if (argArray[i].progreso < 100 && argArray[i].progreso > 90)
-            {
-            
                 printw("*********.");
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                 //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
-                //addch(ACS_DIAMOND);
+
+
                     
             }
+
 
             else
             {
@@ -205,7 +202,7 @@ int main(){
             }
         //const char* valor = doubleToStr(argArray[i].resultado);
         move(2*i, 50);
-        printw("%.11f", argArray[i].resultado);
+        printw("%.22f", argArray[i].resultado);
         refresh();
         }
     }
