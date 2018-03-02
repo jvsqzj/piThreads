@@ -66,7 +66,7 @@ int main(){
     }
 
   
-
+    
 
     while(ciclo==true){
         
@@ -103,8 +103,8 @@ int main(){
             {
             
 
-                
-                addch(ACS_DIAMOND);
+                printw("*.........");
+                //(ACS_DIAMOND);
                 
                     
             }
@@ -113,67 +113,68 @@ int main(){
             {
             
 
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                printw("**........");
                     
             }
 
             else if (argArray[i].progreso < 40 && argArray[i].progreso > 30)
             {
             
-
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND);
+                printw("***.......");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND);
                     
             }
 
             else if (argArray[i].progreso < 50 && argArray[i].progreso > 40)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+                printw("****.......");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                     
             }
 
             else if (argArray[i].progreso < 60 && argArray[i].progreso > 50)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); 
+                printw("*****.....");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); 
                     
             }
 
             else if (argArray[i].progreso < 70 && argArray[i].progreso > 60)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+                printw("******....");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
                     
             }
 
             else if (argArray[i].progreso < 80 && argArray[i].progreso > 70)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND);
+                printw("*******...");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND);
                     
             }
 
             else if (argArray[i].progreso < 90 && argArray[i].progreso > 80)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+                printw("********..");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
 
 
                     
@@ -182,24 +183,24 @@ int main(){
             else if (argArray[i].progreso < 100 && argArray[i].progreso > 90)
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND);
+                printw("*********.");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND);
                     
             }
 
             else
             {
             
-            
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
-                addch(ACS_DIAMOND); addch(ACS_DIAMOND);
+                printw("**********");
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); //addch(ACS_DIAMOND);
+                //addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                     
             }
         //const char* valor = doubleToStr(argArray[i].resultado);
