@@ -6,8 +6,11 @@
 #include <iomanip>  //  libreria de manipulacion de decimales
 #include <unistd.h>
 #include <term.h>
+#include <sstream>
 
 using namespace std;
+
+
 
 /*-----------------------------------------------------------------------------
                     piArguments es una estructura para                           
@@ -70,37 +73,15 @@ void *piThread(void* arg){
     pthread_exit(NULL); 
 }
 
-/*-----------------------------------------------------------------------------
-                    showThread es una funcion que se encarga
-                    de mostrar los datos calculados por los 
-                    threads y el progreso de cada thread                                               
--------------------------------------------------------------------------------
-        Se debe llamar con un argumento de entrada tipo
-        struct piArguments , ingresado por referencia,
-        y hace uso de los atributos resultado y progeso
------------------------------------------------------------------------------*/
-
-void *showThread(void* arg){
-    pthread_exit(NULL);
+const char* doubleToStr(double value){
+    std::stringstream ss ;
+    ss << value;
+    const char* str = ss.str().c_str();
+    return str;
 }
 
-/*-----------------------------------------------------------------------------
-                    keyThread es una funcion que se encarga
-                    'escuchar' el teclado y retornar el valor
-                    de una tecla ingresada                                               
--------------------------------------------------------------------------------
-        Se debe llamar con un argumento tipo puntero a char* para
-        que pueda modificar una variable en el programa principal
-        que pueda ser leida en este ultimo y realizar diferentes
-        operaciones segun corresponda a su valor
------------------------------------------------------------------------------*/
 
-void *keyThread(void* arg){
-    pthread_exit(NULL);
-}
-/*
-
---------------------------- Funciones de prueba -------------------------
+/*--------------------------- Funciones de prueba -------------------------
 
 */
 void ClearScreen()
