@@ -57,9 +57,13 @@ int main(){
         printw("%i", i);
     }
 
+  
+
 
     while(ciclo==true){
+        
         captura=getch();
+        nodelay(stdscr, true);
         cbreak();
 
         if(captura==80 || captura==112){
@@ -83,13 +87,17 @@ int main(){
             if (argArray[i].progreso < 20 && argArray[i].progreso > 10)
             {
                 move(2*i, 20);
+                printw("10");
+                
                 addch(ACS_DIAMOND);
+                
                     
             }
 
             else if (argArray[i].progreso < 30 && argArray[i].progreso > 20)
             {
                 move(2*i, 20);
+                printw("20");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                     
             }
@@ -97,6 +105,7 @@ int main(){
             else if (argArray[i].progreso < 40 && argArray[i].progreso > 30)
             {
                 move(2*i, 20);
+                printw("30");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND);
                     
@@ -105,6 +114,7 @@ int main(){
             else if (argArray[i].progreso < 50 && argArray[i].progreso > 40)
             {
                 move(2*i, 20);
+                printw("40");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                     
@@ -113,6 +123,7 @@ int main(){
             else if (argArray[i].progreso < 60 && argArray[i].progreso > 50)
             {
                 move(2*i, 20);
+                printw("50");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); 
@@ -122,6 +133,7 @@ int main(){
             else if (argArray[i].progreso < 70 && argArray[i].progreso > 60)
             {
                 move(2*i, 20);
+                printw("60");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -131,6 +143,7 @@ int main(){
             else if (argArray[i].progreso < 80 && argArray[i].progreso > 70)
             {
                 move(2*i, 20);
+                printw("70");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -141,6 +154,7 @@ int main(){
             else if (argArray[i].progreso < 90 && argArray[i].progreso > 80)
             {
                 move(2*i, 20);
+                printw("80");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -151,6 +165,7 @@ int main(){
             else if (argArray[i].progreso < 100 && argArray[i].progreso > 90)
             {
                 move(2*i, 20);
+                printw("90");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
@@ -162,6 +177,7 @@ int main(){
             else
             {
                 move(2*i, 20);
+                printw("100");
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);
                 addch(ACS_DIAMOND); addch(ACS_DIAMOND);

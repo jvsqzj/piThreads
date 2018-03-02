@@ -56,7 +56,7 @@ void *piThread(void* arg){
     int n = data->iteraciones;
     int i = 0;
     while (i < n){
-        usleep(5000);
+        usleep(10000);
         if (!*data->pausa){
             suma += 4*sign/(2.0*i+1.0);
             sign *= -1;
